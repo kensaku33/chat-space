@@ -8,20 +8,20 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false|
 |nickname|string |null: false|
 |e-mail|string |null: false|
 |password|string |null: false|
 ### Association
-- has_many : groups, through: :user_group
-- has_many : tweets
+- has_many : groups, through: :user_groups
+- has_many : user_groups
+- has_many : messages
 
 
-## user_groupテーブル
+## user_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false|
-|groupe_id|integer|null: false|
+|group_id|integer|null: false|
 ### Association
 - belongs_to : user
 - belongs_to : group
@@ -30,19 +30,19 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false|
-|group_name|string|null: false|
+|name|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
-- has_many : users, through: :user_group
-- has_many : tweets
+- has_many : users, through: :user_groups
+- has_many : messages
+- has_many : user_groups
 
 
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id|
 |message|text||
+|image|text||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
