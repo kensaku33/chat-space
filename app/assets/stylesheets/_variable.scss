@@ -11,8 +11,7 @@ a:link{
 .chat-side a{
   color: white;
   font-size: 16px;
-}
-
+}  
 
 .wrapper{
   width: 100%;
@@ -51,12 +50,11 @@ a:link{
       height: calc(100vh - 100px);
       padding: 20px;
       &__group{
-        font-weight: bold;
         &__group-name{
           font-size: 15px;
           margin-bottom: 5px;
         }
-        &__latest-message{
+        &__group-message{
           font-size: 11px;
           margin-bottom: 40px;
         }

@@ -18,10 +18,11 @@
 
     .chat-side__groups
       .chat-side__groups__group
-        %p.chat-side__groups__group__group-name
-          group-name
-        %p.chat-side__groups__group__latest-message
-          latest-message
+        = render 'shared/side_bar'
+        -# %p.chat-side__groups__group__group-name
+        -#   group-name
+        -# %p.chat-side__groups__group__latest-message
+        -#   latest-message
 
 
   .chat-main
