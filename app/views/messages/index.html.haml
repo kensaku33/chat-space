@@ -33,30 +33,7 @@
         %li.chat-main__header__btn__edit
           Edit
     .chat-main__messages
-      .chat-main__messages__message
-        .chat-main__messages__message__upper-info
-          %p.chat-main__messages__message__upper-info__talker
-            おなまえ
-          %p.chat-main__messages__message__upper-info__date
-            2019/08/27
-        %p.chat-main__messages__message__text
-          わああぁ、、あぁ
-      .chat-main__messages__message
-        .chat-main__messages__message__upper-info
-          %p.chat-main__messages__message__upper-info__talker
-            おなまえ
-          %p.chat-main__messages__message__upper-info__date
-            2019/08/27
-        %p.chat-main__messages__message__text
-          わああぁ、、あぁ
-      .chat-main__messages__message
-        .chat-main__messages__message__upper-info
-          %p.chat-main__messages__message__upper-info__talker
-            おなまえ
-          %p.chat-main__messages__message__upper-info__date
-            2019/08/27
-        %p.chat-main__messages__message__text
-          わああぁ、、あぁ
+      = render @messages
     .chat-main__form
       = form_for [@group, @message] do |f|
         .form__mask
