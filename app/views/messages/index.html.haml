@@ -24,14 +24,16 @@
     .chat-main__header
       .chat-main__header__left-box
         %h2.chat-main__header__left-box__current-group
-          グループでぬ
+          = @group.name
         %ul.chat-main__header__left-box__member-list
-          メンバーだよ：
+          Member：
           %li.chat-main__header__left-box__member-list__member-name
-            私だ
+            - @group.users.each do |user|
+              = user.name
       .chat-main__header__btn
         %li.chat-main__header__btn__edit
-          Edit
+          =link_to "", class: "btn" do
+            Edit
     .chat-main__messages
       = render @messages
     .chat-main__form
