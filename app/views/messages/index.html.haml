@@ -24,45 +24,24 @@
     .chat-main__header
       .chat-main__header__left-box
         %h2.chat-main__header__left-box__current-group
-          グループでぬ
+          = @group.name
         %ul.chat-main__header__left-box__member-list
-          メンバーだよ：
+          Member：
           %li.chat-main__header__left-box__member-list__member-name
-            私だ
+            - @group.users.each do |user|
+              = user.name
       .chat-main__header__btn
         %li.chat-main__header__btn__edit
-          Edit
+          =link_to "", class: "btn" do
+            Edit
     .chat-main__messages
-      .chat-main__messages__message
-        .chat-main__messages__message__upper-info
-          %p.chat-main__messages__message__upper-info__talker
-            おなまえ
-          %p.chat-main__messages__message__upper-info__date
-            2019/08/27
-        %p.chat-main__messages__message__text
-          わああぁ、、あぁ
-      .chat-main__messages__message
-        .chat-main__messages__message__upper-info
-          %p.chat-main__messages__message__upper-info__talker
-            おなまえ
-          %p.chat-main__messages__message__upper-info__date
-            2019/08/27
-        %p.chat-main__messages__message__text
-          わああぁ、、あぁ
-      .chat-main__messages__message
-        .chat-main__messages__message__upper-info
-          %p.chat-main__messages__message__upper-info__talker
-            おなまえ
-          %p.chat-main__messages__message__upper-info__date
-            2019/08/27
-        %p.chat-main__messages__message__text
-          わああぁ、、あぁ
-
-
+      = render @messages
     .chat-main__form
-      .chat-main__form__input-box
-        %input.chat-main__form__input-box__text{type:'text', placeholder:'type a message'}
-        %label.chat-main__form__input-box__image
-          = fa_icon 'image',id: "upload-icon" 
-          %input{type: 'file', for: 'upload-icon'}  
-      %input.chat-main__form__send-btn{type:'submit', value:'Send'}
+      = form_for [@group, @message] do |f|
+        .form__mask
+          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+          = f.label :image, class: 'form__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
+

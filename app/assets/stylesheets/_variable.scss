@@ -6,8 +6,6 @@ a:link{
   text-decoration: none;
 }
 
-
-
 .chat-side a{
   color: white;
   font-size: 16px;
@@ -83,23 +81,9 @@ a:link{
           font-size: 12px;
           color: #999;
           display: flex;
-          &__member-name{
-          }
         }
       }
-      &__btn{
-        background-color: white;
-        height: 40px;
-        line-height: 40px;
-        border: solid 1px #38aef0;
-        display: block;
-        margin-top: 30px;
-        &__edit{
-          color: #38aef0;
-          padding: 0 20px;
-          display: inline;
-        }
-      }
+      
     }
     &__messages{
       background-color: #fafafa;
@@ -108,69 +92,99 @@ a:link{
       &__message{
         width: 100%;
         padding-bottom: 40px;
-        &__upper-info{ 
-          margin-bottom: 10px;
-          display: flex;
-          &__talker{
-            font-size: 16px;
-            font-weight: bold;
-            float: left;
-          }
-          &__date{
-            font-size: 12px;
-            color: #999;
-            padding-left: 10px;
-            float: left;
-          }
-        }
-        &__text{
-          font-size: 14px;
-          margin-bottom: 10px;
-        }
       }
     }
     &__form{
       height: 90px;
       padding: 20px 40px;
       background-color: #ddd;
+      position: relative;
       display: flex;
-      &__input-box{
-        background-color: white;
-        height: 50px;
-        width: 100vw;
-        line-height: 50px;
-        position: relative;
-        display: flex;
-
-        &__text{
-          height: 50px;
-          width: 100%;
-          line-height: 50px;
-          padding: 0 40px 0 10px;
-          border: none;
-        }
-        &__image{
-          font-size: 1.3rem;
-          position: absolute;
-          line-height: 50px;
-          right: 10px;
-          input{
-            display: none;
-          }
-        }         
-      
-      }
-      &__send-btn{
-        height: 50px;
-        width: 100px;
-        padding: 0 30px;
-        margin-left: 15px;
-        line-height: 50px;
-        background-color: #38aef0;
-        color: white;
-        cursor: pointer;
-      }
     }
   }
 }
 
+.btn{
+  background-color: white;
+  height: 38px;
+  line-height: 100px;
+  border: solid 1px #38aef0;
+  display: flex;
+  margin-top: 30px;
+}
+
+a{
+  color: #38aef0;
+  padding: 0 20px;
+  text-align: center;
+  
+}
+
+
+.upper-message{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.upper-message__user-name{
+  font-size: 16px;
+  font-weight: bold;
+  float: left;
+}
+
+.upper-message__date{
+  font-size: 12px;
+  color: #999;
+  padding-left: 10px;
+  float: left;
+}
+
+.lower-message{
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+form{
+  display: flex;
+}
+
+.form__mask{
+  position: relative;
+  width: 100%;
+}
+
+.new_message{
+  width: 100%;
+}
+
+.form__message{
+  background-color: white;
+  height: 50px;
+  width: 100%;
+  padding: 0 40px 0 10px;
+  line-height: 50px;
+  position: relative;
+  float: left;
+  border: none;
+}
+
+.form__image{
+  font-size: 1.3rem;
+  position: absolute;
+  line-height: 50px;
+  right: 10px;
+}
+
+.hidden{
+  display: none;
+}
+
+.form__submit{
+  height: 50px;
+  padding: 0 30px;
+  margin-left: 15px;
+  line-height: 50px;
+  background-color: #38aef0;
+  color: white;
+  cursor: pointer;
+}
