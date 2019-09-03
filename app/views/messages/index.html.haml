@@ -31,8 +31,8 @@
             - @group.users.each do |user|
               = user.name
       .chat-main__header__btn
-        %li.chat-main__header__btn__edit
-          =link_to "", class: "btn" do
+        .chat-main__header__btn__edit
+          =link_to edit_group_path(@group), class: "btn" do
             Edit
     .chat-main__messages
       = render @messages
