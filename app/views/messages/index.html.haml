@@ -39,7 +39,7 @@
     .chat-main__form
       = form_for [@group, @message] do |f|
         .form__mask
-          = f.text_field :content, class: 'form__message', placeholder: 'type a message', id: 'new_message', action: '/post'
+          = f.text_field :content, class: 'form__message', placeholder: 'type a message', id: 'new_message'
           = f.label :image, class: 'form__image' do
             = fa_icon 'picture-o', class: 'icon'
             = f.file_field :image, class: 'hidden'
