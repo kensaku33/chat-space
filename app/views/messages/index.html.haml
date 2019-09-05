@@ -31,17 +31,17 @@
             - @group.users.each do |user|
               = user.name
       .chat-main__header__btn
-        %li.chat-main__header__btn__edit
-          =link_to "", class: "btn" do
+        .chat-main__header__btn__edit
+          =link_to edit_group_path(@group), class: "btn" do
             Edit
     .chat-main__messages
       = render @messages
     .chat-main__form
       = form_for [@group, @message] do |f|
         .form__mask
-          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+          = f.text_field :content, class: 'form__message', placeholder: 'type a message', id: 'new_message'
           = f.label :image, class: 'form__image' do
             = fa_icon 'picture-o', class: 'icon'
             = f.file_field :image, class: 'hidden'
-        = f.submit 'Send', class: 'form__submit'
+        = f.submit 'Send', class: 'form__submit',id: 'send_message'
 
