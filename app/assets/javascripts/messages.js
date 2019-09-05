@@ -1,15 +1,9 @@
 $(document).on("turbolinks:load", function() {
   function buildHTML(message){
-    let img = ""
-    if (message.image !== null) {
-        img = `<img src="${message.image}">`
-    }
-    let content = ""
-    if (message.content !== null) {
-        content = `<p class="lower-message__content">
-        ${message.content}
-        </p>`
-    }
+    let content = message.content ? `<p class="lower-message__content">
+                                      ${message.content}
+                                      </p>` : "";
+    let img = message.image ? `<img src="${message.image}">` : "";
     var html = `<div class="chat-main__messages__message">
                   <div class="message">
                     <div class="upper-message">
@@ -22,7 +16,7 @@ $(document).on("turbolinks:load", function() {
                     </div>
                     <div class="lower-message">
                       <p class="lower-message__content">
-                      ${message.content}
+                      ${content}
                       </p>
                       ${img}
                     </div>
@@ -35,7 +29,6 @@ $(document).on("turbolinks:load", function() {
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
-    // console.log(url);
     $.ajax({
       url: url,
       type: 'post',
@@ -44,12 +37,10 @@ $(document).on("turbolinks:load", function() {
       processData: false,
       contentType: false
     })
-    
     .done(function(data){
       var html = buildHTML(data);
       $('.chat-main__messages').append(html);
       $('.form__message').val('')
-      $('#new_message')[0].reset()
       $('#send_message').removeAttr('disabled');
       $('.chat-main__messages').animate({ scrollTop: $('.chat-main__messages')[0].scrollHeight});
       return true
