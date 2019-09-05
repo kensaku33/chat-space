@@ -40,7 +40,7 @@ $(document).on("turbolinks:load", function() {
     .done(function(data){
       var html = buildHTML(data);
       $('.chat-main__messages').append(html);
-      $('.form__message').val('')
+      $('#new_message')[0].reset()
       $('#send_message').removeAttr('disabled');
       $('.chat-main__messages').animate({ scrollTop: $('.chat-main__messages')[0].scrollHeight});
       return true
