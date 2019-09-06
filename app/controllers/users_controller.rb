@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
 
+  def index
+    @user = User.where(params[:name])
+    respond_to do|format|
+      format.html
+    end
+  end
+
   def edit
   end
 
