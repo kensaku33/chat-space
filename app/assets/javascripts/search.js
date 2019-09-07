@@ -53,7 +53,6 @@ $(document).on('turbolinks:load', function(){
 
   $("#user-search-result").on('click', '.chat-group-user__btn--add', function(){
     var i =  $('.chat-group-user__btn--add').index(this);
-    console.log(this);
     $($('.chat-group-user')[i]).remove();
     var name = $(this).data("user-name");
     var id = $(this).data("user-id");
