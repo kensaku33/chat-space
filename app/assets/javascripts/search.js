@@ -40,36 +40,41 @@ $(document).on('turbolinks:load', function(){
     })
   });
 
-
-  // function removeAdd(name, id){
-  //   var add_user =`<div class="chat-group-user clearfix">
-  //                   <p class="chat-group-user__name">${name}</p>
-  //                   <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${id}" data-user-name=${name}>削除</div>
-  //                 </div>`
-  // ('.chat-group-users.js-add-user').append(add_user)
-  // }
-
-
-
+  var add_user =$('.chat-group-users.js-add-user');
 
   function addUser(name, id){
-    var add_user =`<div class="chat-group-user clearfix">
-                    <p class="chat-group-user__name">${name}</p>
-                    <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${id}" data-user-name=${name}>削除</div>
-                  </div>`
-  ('.chat-group-users.js-add-user').append(add_user)
+    var html2 =`<div class="chat-group-user">
+                  <input name="group[user_ids][]" type="hidden" value=${id}>
+                  <p class="chat-group-user__name">${name}</p>
+                  <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</a>
+                </div>`
+  add_user.append(html2)
   }
 
   $("#user-search-result").on('click', '.chat-group-user__btn--add', function(){
     var i =  $('.chat-group-user__btn--add').index(this);
+    console.log(this);
     $($('.chat-group-user')[i]).remove();
-    var name = "";
-    var id = 0;
+    var name = $(this).data("user-name");
+    var id = $(this).data("user-id");
     addUser(name, id);
   })
+
+  $(".chat-group-users.js-add-user").on('click', '.chat-group-user__btn--remove', function(){
+    $(this).parent().remove();
+  });
 
 
 
 
 });
-
+/* <div class="chat-group-user">
+  <input name="group[user_ids][]" type="hidden" value="3">
+  <p class="chat-group-user__name">ああああ</p>
+  <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</a>
+</div>
+<div class="chat-group-user clearfix js-chat-member" id="chat-group-user">
+  <input name="group[user_ids][]" type="hidden" value="3">
+  <p class="c hat-group-user__name">ああああ</p>
+  <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</a>
+</div> */
