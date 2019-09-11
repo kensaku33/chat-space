@@ -34,7 +34,7 @@ $(document).on('turbolinks:load', function(){
           });
         }
         else {
-          appendErrMsgToHTML;
+          appendErrMsgToHTML();
         }
       })
     })
