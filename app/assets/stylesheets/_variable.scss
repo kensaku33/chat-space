@@ -72,13 +72,12 @@ a:link{
       justify-content: space-between;
       &__btn{
         background-color: white;
-        height: 38px;
+        height: 40px;
         border: solid 1px #38aef0;
         margin-top: 30px;
-        padding: 11px 20px;
+        padding: 0 20px;
         &__edit{
-          &__btn{
-          }
+          margin-top: 8px;
         }
       }
       &__left-box{
